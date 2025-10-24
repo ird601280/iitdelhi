@@ -10,12 +10,21 @@
 
   <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    <link rel="shortcut icon" type="x-icon" href="../static/equiplogo.ico">
+    <link rel="shortcut icon" type="x-icon" href="../static/iitdelhilogo.ico">
     <script src="https://kit.fontawesome.com/4a3b60632f.js" crossorigin="anonymous"></script>
     
   <title>EQUIP LAB - IIT DELHI</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <style>
+
+  body {
+  background-image: url('bgimage.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
 
  /* Add a black background color to the top navigation */
 .topnav {
@@ -87,7 +96,7 @@
     /* small controls */
     .controls{display:grid;gap:10px;margin-top:14px}
     .control-row{display:flex;align-items:center;justify-content:space-between}
-    .btn{padding:8px 12px;border-radius:8px;border:1px solid #cfd7e2;background:white;cursor:pointer}
+    .btn{padding:8px 12px;border-radius:8px;border:1px solid #cfd7e227;background:white;cursor:pointer}
 
     /* HV panel */
     .hv-wrap{display:flex;gap:18px;align-items:center}
@@ -115,6 +124,28 @@
 
     /* responsive */
     @media (max-width:980px){.wrap{flex-direction:column}.left,.right{flex:1;width:auto}}
+
+
+    footer {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: orange;
+            padding: 10px;
+        }
+
+        .emergency-contacts {
+            background-color: #ddd;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.0rem;
+        }
+
+
+
+
+
+
   </style>
 
 
@@ -158,7 +189,10 @@
   <a href="#"><i class="fa-sharp fa-solid fa-bolt"></i> CURRENT CONTROL</a>
   <a href="#"><i class="fa-solid fa-temperature-low"></i> CHILLER CONTROL</a>
   <a href="#"><i class="fa-sharp fa-solid fa-life-ring"></i> OVEN CONTROL</a>
-  <a href="#" class="split"><i class="fa-solid fa-bars"></i> MENU</a>
+  <form action="/stop" method="post">
+  <button type="submit" style="background-color: #f44336;"><i class="fa-solid fa-triangle-exclamation"></i>  EMERGENCY SHUTDOWN <i class="fa-solid fa-triangle-exclamation"></i></button>
+  </form>
+  
 </div>
 
   <div class="wrap" role="application" aria-label="Laser control mockup">
@@ -324,6 +358,18 @@
     document.getElementById('imax1').addEventListener('input', updateCurrents);
     document.getElementById('imax2').addEventListener('input', updateCurrents);
 
+  </script>
+
+  <!-- FOOTER -->
+<div class="emergency-contacts">
+    <p style="color: blue;"><i class="fa-solid fa-tty"></i> Emergency Contacts: <i class="fa-solid fa-fire"></i>  Fire: 6894 | <i class="fa-solid fa-person-military-pointing"></i>  Security: 1000 | <i class="fa-sharp fa-solid fa-bolt"></i>  Main Sub Station: 1400 | <i class="fa-solid fa-truck-medical"></i> Ambulance: 6666 | <i class="fa-solid fa-hospital"></i> Hospital: 1500</p>
+</div>
+  <footer>
+    <center><p>Copyright &copy; <span id="cyear"></span> EQUIP - IIT DELHI</p></center>
+  </footer>
+
+  <script>
+    document.getElementById('cyear').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
