@@ -1,9 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template, jsonify, request
+app = Flask(__name__, template_folder='template')
 
-app=Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def index():
-    return " Welcome to  IIT DELHI EQUIP LAB"
+    return render_template("index.html")
 
-app.run(debug=True)
+
+if(__name__=='__main__'):
+    app.run(debug=True) 
