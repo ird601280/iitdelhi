@@ -31,11 +31,27 @@ GPIO.setmode(GPIO.BCM)      #Sets the GPIO pin numbering mode.    #BCM mode uses
 global pwmobj                    # declare the pmwobj as a global variable
 
 
+# Define the GPIO pin you want to readback sensor position
+#gpio_sense_in = [4,17,27,22,10,9,11,0,5]
+
 
 # Route for the home page
 @app.route("/", methods=['GET'])
 def index():
-    return render_template("index.html")
+    laser_data = {
+        "laser_temp1": 25.6,
+        "laser_current1": 10.2,
+
+        "laser_temp2": 27.4,
+        "laser_current2": 11.8,
+
+        "laser_temp3": 26.1,
+        "laser_current3": 12.3,
+
+        "laser_temp4": 28.0,
+        "laser_current4": 9.7
+    }
+    return render_template("index.html", **laser_data)
 
 
 # Main Page
